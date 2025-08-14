@@ -1,0 +1,83 @@
+<template>
+    <lightning-card title="Message Template Preview" icon-name="custom:custom63">
+        <div class="slds-p-horizontal_medium slds-p-vertical_small">
+
+            <!-- Dev-only status; remove for prod -->
+            <p>✅ LWC loaded</p>
+
+            <template if:true={recordId}>
+                <p><strong>Record ID:</strong> {recordId}</p>
+            </template>
+
+            <!-- Template picker -->
+            <lightning-combobox
+                name="template"
+                label="Select a Template"
+                value={selectedTemplateId}
+                options={templateOptions}
+                onchange={handleTemplateChange}
+                disabled={isLoading}>
+            </lightning-combobox>
+
+            <!-- Empty state (only if we know we've tried to load) -->
+            <template if:true={showNoTemplates}>
+                <p class="slds-text-color_weak slds-m-top_small">⚠️ No templates found.</p>
+            </template>
+
+            <!-- Loading -->
+            <template if:true={isLoading}>
+                <div class="slds-m-top_medium">
+                    <lightning-spinner alternative-text="Resolving template"></lightning-spinner>
+                </div>
+            </template>
+
+            <!-- Resolved preview -->
+   <template if:true={resolvedMessage}>
+  <div class="slds-m-top_medium slds-box slds-box_xx-small slds-theme_default slds-theme_alert-texture" 
+       style="border-left: 5px solid #1589ee;">
+    <p class="slds-text-heading_medium slds-text-color_success" style="margin:0;">
+      <strong>RESOLVED MESSAGE::</strong> 
+      <span style="font-family:monospace; color:#032d60;">"{resolvedMessage}"</span>
+    </p>
+  </div>
+</template>
+
+      <!-- For show: the template record fields -->
+ <!-- For show: the template record fields -->
+<template if:true={selectedTemplateId}>
+  <div class="slds-m-top_large">
+    <h3 class="slds-text-title_bold">Template Details (for demo)</h3>
+
+    <dl class="slds-dl_horizontal slds-wrap slds-m-top_small">
+
+      <dt class="slds-dl_horizontal__label slds-size_1-of-4 slds-text-color_weak">Name</dt>
+      <dd class="slds-dl_horizontal__detail slds-size_3-of-4">{tmplName}</dd>
+
+      <dt class="slds-dl_horizontal__label slds-size_1-of-4 slds-text-color_weak slds-m-top_small">Message Body</dt>
+      <dd class="slds-dl_horizontal__detail slds-size_3-of-4 slds-box slds-box_xx-small slds-theme_default slds-theme_shade slds-scrollable_y" style="white-space:pre-wrap;font-family:monospace;">
+        {tmplBody}
+      </dd>
+
+      <dt class="slds-dl_horizontal__label slds-size_1-of-4 slds-text-color_weak slds-m-top_small">Template Variables</dt>
+      <dd class="slds-dl_horizontal__detail slds-size_3-of-4 slds-box slds-box_xx-small slds-theme_default slds-theme_shade slds-scrollable_y" style="white-space:pre-wrap;font-family:monospace;">
+        {tmplVars}
+      </dd>
+
+      <dt class="slds-dl_horizontal__label slds-size_1-of-4 slds-text-color_weak slds-m-top_small">Object Lookups</dt>
+      <dd class="slds-dl_horizontal__detail slds-size_3-of-4 slds-box slds-box_xx-small slds-theme_default slds-theme_shade slds-scrollable_y" style="white-space:pre-wrap;font-family:monospace;">
+        {tmplLookups}
+      </dd>
+
+    </dl>
+
+    <template if:true={templateLink}>
+      <p class="slds-m-top_small">
+        <a href={templateLink} target="_blank" class="slds-text-link">View this template in Experience Cloud</a>
+      </p>
+    </template>
+  </div>
+</template>
+
+    </div>
+  </lightning-card>
+</template>
