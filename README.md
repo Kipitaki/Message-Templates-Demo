@@ -7,6 +7,8 @@ https://github.com/Kipitaki/Message-Templates-Demo
 Objective
 This is a proof-of-concept I built to show how Salesforce can take a predefined message template and automatically fill in the blanks with live record data. It’s a full example of Apex and Lightning Web Components working together to make messaging faster, more accurate, and a lot less manual.
 
+This approach was originally built for our SMS messaging project, allowing agents to quickly send unified, pre-approved messages instead of free-typing, ensuring consistency and compliance.
+
 Reason for Use
 If you send out a lot of client updates, reminders, or onboarding messages, typing or copy-pasting the same thing over and over gets old fast—and mistakes happen. This setup lets you pick a template, pull in details from an Account or Case automatically, and preview the exact message before it’s sent. It saves time and makes sure the right info goes to the right person every time.
 
