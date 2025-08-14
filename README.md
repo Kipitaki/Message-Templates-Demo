@@ -27,3 +27,6 @@ Lightning Web Component – MessageTemplatePreview
 • Shows errors if something goes wrong.
 • Great for testing templates before you start sending them out.
 
+
+This Demo Created by Allison Young allyayoung@gmail.com 
+
