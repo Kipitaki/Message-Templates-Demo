@@ -26,4 +26,4 @@ Lightning Web Component – MessageTemplatePreview
 • Cleans up the text so it’s readable (removes HTML tags, decodes entities).
 • Shows errors if something goes wrong.
 • Great for testing templates before you start sending them out.
-<img width="432" height="654" alt="image" src="https://github.com/user-attachments/assets/b019c590-69b8-43e0-a5ef-7ce91f0a7f96" />
+
